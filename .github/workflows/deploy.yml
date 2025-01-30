@@ -39,7 +39,6 @@ jobs:
         uses: actions/configure-pages@v4
         with:
           static_site_generator: astro
-          build_dir: dist
 
       - name: Install dependencies
         run: |
