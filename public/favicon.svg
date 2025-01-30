@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fond -->
+    <rect width="32" height="32" rx="8" fill="#7C3AED"/>
+    
+    <!-- Initiales LC -->
+    <path d="M11 9V20.5C11 21.8807 12.1193 23 13.5 23H21" 
+          stroke="white" 
+          stroke-width="3" 
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+    
+    <path d="M17 15.5C17 14.1193 18.1193 13 19.5 13H21" 
+          stroke="white" 
+          stroke-width="3" 
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+</svg>

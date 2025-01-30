@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Mentions légales - LeonCode | Expert Shopify">
+    <main class="py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl font-bold text-gray-900 mb-8">Mentions légales</h1>
+            
+            <div class="prose max-w-none">
+                <h2>1. Édition du site</h2>
+                <p>Le site leoncode.fr est édité par :</p>
+                <p>LeonCode<br>
+                [Votre adresse]<br>
+                Email : contact@leoncode.fr</p>
+
+                <h2>2. Hébergement</h2>
+                <p>Le site leoncode.fr est hébergé par :<br>
+                Netlify, Inc.<br>
+                44 Montgomery Street, Suite 300<br>
+                San Francisco, California 94104</p>
+
+                <h2>3. Propriété intellectuelle</h2>
+                <p>L'ensemble du site, y compris son contenu, sa structure et ses éléments constitutifs (textes, images, graphismes, logo, etc.) sont la propriété exclusive de LeonCode. Toute reproduction, représentation, modification, publication, adaptation totale ou partielle des éléments du site est strictement interdite sans l'accord écrit préalable de LeonCode.</p>
+
+                <h2>4. Liens hypertextes</h2>
+                <p>Le site peut contenir des liens hypertextes vers d'autres sites internet. LeonCode ne peut être tenu responsable directement ou indirectement du contenu de ces sites.</p>
+
+                <h2>5. Données personnelles</h2>
+                <p>Les informations concernant la collecte et le traitement des données personnelles sont détaillées dans notre Politique de confidentialité.</p>
+
+                <h2>6. Droit applicable</h2>
+                <p>Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.</p>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+.prose {
+    @apply text-gray-600 space-y-6;
+}
+.prose h2 {
+    @apply text-2xl font-semibold text-gray-900 mt-12 mb-4;
+}
+.prose p {
+    @apply mb-4;
+}
+</style>

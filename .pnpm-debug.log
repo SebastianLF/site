@@ -1,0 +1,20 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "shortMessage": "Command failed with exit code 1: C:\\Users\\PC_SB\\AppData\\Local\\Temp\\dlx-11324\\create-astro.CMD",
+    "command": "C:\\Users\\PC_SB\\AppData\\Local\\Temp\\dlx-11324\\create-astro.CMD",
+    "escapedCommand": "\"C:\\Users\\PC_SB\\AppData\\Local\\Temp\\dlx-11324\\create-astro.CMD\"",
+    "exitCode": 1,
+    "failed": true,
+    "timedOut": false,
+    "isCanceled": false,
+    "killed": false,
+    "err": {
+      "name": "pnpm",
+      "message": "Command failed with exit code 1: C:\\Users\\PC_SB\\AppData\\Local\\Temp\\dlx-11324\\create-astro.CMD",
+      "stack": "pnpm: Command failed with exit code 1: C:\\Users\\PC_SB\\AppData\\Local\\Temp\\dlx-11324\\create-astro.CMD\n    at makeError (C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:42512:17)\n    at handlePromise (C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:43083:33)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async Object.handler (C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:177441:7)\n    at async C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:182129:21\n    at async run (C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:182103:34)\n    at async runPnpm (C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:182322:5)\n    at async C:\\Users\\PC_SB\\AppData\\Roaming\\nvm\\v17.0.0\\node_modules\\pnpm\\dist\\pnpm.cjs:182314:7"
+    }
+  }
+}

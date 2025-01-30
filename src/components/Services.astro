@@ -1,0 +1,111 @@
+---
+const services = [
+    {
+        icon: "🛍️",
+        title: "Création de boutique",
+        description: "Développement complet de votre boutique Shopify avec une expérience client optimisée."
+    },
+    {
+        icon: "⚡",
+        title: "Optimisation",
+        description: "Amélioration des performances, de la vitesse et du taux de conversion de votre boutique existante."
+    },
+    {
+        icon: "🔧",
+        title: "Applications",
+        description: "Développement d'applications personnalisées pour étendre les fonctionnalités de votre boutique."
+    },
+    {
+        icon: "📊",
+        title: "Consulting SEO",
+        description: "Conseils stratégiques et techniques pour maximiser vos ventes et augmenter votre visibilité sur google."
+    }
+];
+---
+
+<section class="relative py-32 overflow-hidden bg-white">
+    <!-- Fond avec motif hexagonal subtil -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+    <div class="absolute inset-0 opacity-[0.02] bg-[url('/grid.svg')]"></div>
+    
+    <!-- Formes décoratives -->
+    <div class="absolute -left-20 top-20 w-96 h-96 bg-purple-100/20 rounded-[30%_70%_70%_30%/30%_30%_70%_70%]"></div>
+    <div class="absolute -right-20 bottom-20 w-96 h-96 bg-gray-100/30 rounded-[70%_30%_30%_70%/60%_40%_60%_40%]"></div>
+
+    <div class="container mx-auto px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <!-- En-tête avec style moderne -->
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-sm mb-6">
+                    <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                    Mes services
+                    <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Solutions <span class="text-purple-600 relative">
+                        Shopify
+                        <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 100 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 10 Q 25 0, 50 10 T 100 10" fill="none" stroke="rgb(147,51,234)" stroke-width="3"/>
+                        </svg>
+                    </span> sur mesure
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    De la création à l'optimisation, je vous accompagne dans toutes les étapes de votre projet e-commerce
+                </p>
+            </div>
+
+            <!-- Grille de services avec style moderne -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {services.map((service, index) => (
+                    <div class="group relative">
+                        <!-- Carte de service -->
+                        <div class="relative bg-white rounded-[2rem] p-8 h-full border border-gray-100">
+                            <!-- Contenu -->
+                            <div class="relative">
+                                <!-- Icône avec cercle décoratif -->
+                                <div class="relative mb-6">
+                                    <div class="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center text-3xl">
+                                        {service.icon}
+                                    </div>
+                                    <div class="absolute -top-2 -right-2 w-8 h-8 rounded-lg bg-purple-100/50"></div>
+                                </div>
+                                
+                                <!-- Titre -->
+                                <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                                    {service.title}
+                                </h3>
+                                
+                                <!-- Description -->
+                                <p class="text-gray-600">
+                                    {service.description}
+                                </p>
+                            </div>
+
+                            <!-- Numéro décoratif -->
+                            <div class="absolute top-4 right-4 text-4xl font-bold text-purple-100/50 select-none">
+                                0{index + 1}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Bouton d'action -->
+            <div class="text-center mt-16">
+                <a href="#contact" class="inline-flex items-center gap-2 px-8 py-4 bg-purple-600 text-white rounded-full hover:bg-purple-700">
+                    <span>Parlons de votre projet</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+</style>

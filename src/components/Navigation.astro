@@ -1,0 +1,207 @@
+---
+const menuItems = [
+    { label: 'Accueil', path: '/' },
+    { label: 'Services', path: '/#services' },
+    { label: 'Projets', path: '/#projects' },
+    { label: 'Témoignages', path: '/#testimonials' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Contact', path: '/#contact' }
+];
+
+// Récupérer le chemin actuel
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-purple-100">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between h-20">
+            <!-- Logo -->
+            <a href="/" class="flex items-center group">
+                <!-- Symbole du logo -->
+                <div class="relative flex items-center">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="transform origin-center group-hover:rotate-12 transition-transform duration-300" 
+                                d="M24 4L40 12V36L24 44L8 36V12L24 4Z" 
+                                fill="url(#gradient-purple)" 
+                                stroke="currentColor" 
+                                stroke-width="2"
+                            />
+                            <path class="text-purple-200" 
+                                d="M24 4L40 12L24 20L8 12L24 4Z" 
+                                fill="currentColor"
+                            />
+                            <path class="text-white/30" 
+                                d="M24 44V20L40 12V36L24 44Z" 
+                                fill="currentColor"
+                            />
+                            <path class="text-white/10" 
+                                d="M24 44V20L8 12V36L24 44Z" 
+                                fill="currentColor"
+                            />
+                            <defs>
+                                <linearGradient id="gradient-purple" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#9333EA"/>
+                                    <stop offset="100%" stop-color="#7E22CE"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <!-- Texte du logo -->
+                    <div class="flex flex-col ml-1">
+                        <div class="text-2xl font-bold tracking-tight leading-none">
+                            <span class="text-purple-600">Leon</span>
+                            <span class="text-gray-900">Code</span>
+                        </div>
+                        <span class="text-[0.65rem] text-gray-500 font-medium tracking-widest uppercase mt-0.5 hidden sm:block">
+                            Expert Shopify
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Menu principal -->
+            <div class="hidden md:flex items-center space-x-8">
+                {menuItems.map(item => {
+                    const isActive = currentPath === item.path || 
+                                   (currentPath !== '/blog' && item.path.startsWith('/#'));
+                    return (
+                        <a
+                            href={item.path}
+                            class:list={[
+                                "text-gray-600 hover:text-purple-600 font-medium transition-colors"
+                            ]}
+                            data-nav-link={item.path.startsWith('/#')}
+                        >
+                            {item.label}
+                        </a>
+                    );
+                })}
+            </div>
+
+            <!-- Bouton CTA -->
+            <div class="hidden md:block">
+                <a
+                    href="/#contact"
+                    class="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-purple-600 text-white font-medium hover:bg-purple-700 transition-colors"
+                    data-nav-link
+                >
+                    Demander un devis
+                </a>
+            </div>
+
+            <!-- Menu mobile -->
+            <button
+                id="mobile-menu-button"
+                class="md:hidden p-2 rounded-lg hover:bg-purple-50 text-gray-500 hover:text-purple-600"
+                aria-label="Menu"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Menu mobile panel -->
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden border-t border-purple-100 py-4"
+        >
+            <div class="flex flex-col space-y-3">
+                {menuItems.map(item => {
+                    const isActive = currentPath === item.path || 
+                                   (currentPath !== '/blog' && item.path.startsWith('/#'));
+                    return (
+                        <a
+                            href={item.path}
+                            class:list={[
+                                "px-4 py-2 text-gray-600 hover:text-purple-600 font-medium transition-colors",
+                                { "text-purple-600": isActive }
+                            ]}
+                            data-nav-link={item.path.startsWith('/#')}
+                        >
+                            {item.label}
+                        </a>
+                    );
+                })}
+                <div class="pt-3 px-4">
+                    <a
+                        href="/#contact"
+                        class="inline-flex items-center justify-center w-full px-6 py-2.5 rounded-full bg-purple-600 text-white font-medium hover:bg-purple-700 transition-colors"
+                        data-nav-link
+                    >
+                        Demander un devis
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Fonction pour gérer la navigation fluide
+    function handleNavigation(e) {
+        const link = e.currentTarget;
+        if (!link.hasAttribute('data-nav-link')) return;
+
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        
+        // Si nous ne sommes pas sur la page d'accueil, rediriger d'abord
+        if (window.location.pathname !== '/') {
+            window.location.href = href;
+            return;
+        }
+
+        // Extraire l'ID de la section
+        const sectionId = href.split('#')[1];
+        const targetSection = document.getElementById(sectionId);
+        
+        if (targetSection) {
+            // Fermer le menu mobile si ouvert
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Faire défiler jusqu'à la section
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+
+            // Mettre à jour l'URL sans recharger la page
+            history.pushState(null, '', href);
+        }
+    }
+
+    // Gérer le menu mobile
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Ajouter les écouteurs d'événements pour la navigation
+    document.querySelectorAll('[data-nav-link]').forEach(link => {
+        link.addEventListener('click', handleNavigation);
+    });
+
+    // Gérer la navigation initiale si l'URL contient un hash
+    window.addEventListener('load', () => {
+        if (window.location.hash && window.location.pathname === '/') {
+            const targetSection = document.getElementById(window.location.hash.slice(1));
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    });
+</script>
+
+<style>
+    /* Ajouter une transition fluide pour le menu mobile */
+    #mobile-menu {
+        transition: all 0.3s ease-in-out;
+    }
+</style>

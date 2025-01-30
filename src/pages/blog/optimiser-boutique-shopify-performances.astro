@@ -1,0 +1,57 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const title = "Comment optimiser votre boutique Shopify pour les performances";
+const date = "2025-01-20";
+---
+
+<Layout title={title}>
+    <article class="max-w-3xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold mb-4">{title}</h1>
+        <p class="text-gray-600 mb-8">
+            {new Date(date).toLocaleDateString('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            })}
+        </p>
+
+        <div class="prose lg:prose-xl">
+            <h2>Introduction</h2>
+            <p>
+                La vitesse de chargement d'une boutique en ligne est cruciale pour le taux de conversion
+                et l'expérience utilisateur. Dans cet article, nous allons explorer les meilleures
+                pratiques pour optimiser les performances de votre boutique Shopify.
+            </p>
+
+            <h2>1. Optimisation des images</h2>
+            <p>
+                Les images sont souvent le facteur principal de ralentissement d'un site. Voici
+                quelques conseils pour les optimiser :
+            </p>
+            <ul>
+                <li>Compresser les images avant l'upload</li>
+                <li>Utiliser le format WebP quand c'est possible</li>
+                <li>Implémenter le lazy loading</li>
+            </ul>
+
+            <h2>2. Minimiser le code</h2>
+            <p>
+                La réduction du code JavaScript et CSS peut significativement améliorer les
+                performances :
+            </p>
+            <ul>
+                <li>Minifier les fichiers CSS et JavaScript</li>
+                <li>Éliminer le code mort</li>
+                <li>Utiliser la compression Gzip</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                L'optimisation des performances est un processus continu qui nécessite une attention
+                régulière. En suivant ces conseils, vous pourrez améliorer significativement
+                l'expérience utilisateur de votre boutique Shopify.
+            </p>
+        </div>
+    </article>
+</Layout>

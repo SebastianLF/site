@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets';
+import siestonImage from '../assets/projects/sieston-thumbnail.jpg';
+
+const projects = [
+    {
+        title: "Sieston.com",
+        description: "Boutique Shopify spécialisée dans la vente de matelas et accessoires de sieste. Design épuré mettant en avant la qualité du sommeil et le bien-être.",
+        image: siestonImage,
+        tags: ["Gestion de projet", "Configuration", "Développement sur-mesure"],
+        link: "https://sieston.com"
+    }
+];
+---
+
+<section class="relative py-32 overflow-hidden bg-white">
+    <!-- Fond avec motif de points -->
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-white"></div>
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgb(147,51,234,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <!-- Formes décoratives -->
+    <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-purple-100/20 to-transparent transform rotate-45"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-gray-100/30 to-transparent transform -rotate-45"></div>
+
+    <div class="container mx-auto px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <!-- En-tête -->
+            <div class="text-center mb-20">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-sm mb-6">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    Réalisations
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Découvrez mes <span class="text-purple-600">réalisations</span>
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Une sélection de projets Shopify sur mesure qui illustrent mon expertise et ma créativité
+                </p>
+            </div>
+
+            <!-- Grille de projets -->
+            <div class="grid grid-cols-1 max-w-3xl mx-auto">
+                {projects.map((project, index) => (
+                    <div class="group perspective-1000">
+                        <a href={project.link} target="_blank" rel="nofollow noopener noreferrer" class="block">
+                            <!-- Carte de projet avec effet de perspective -->
+                            <div class="relative bg-white rounded-[2rem] overflow-hidden border border-gray-100 transform hover:-translate-y-2 transition-all duration-300 ease-out hover:shadow-xl">
+                                <!-- Image avec overlay -->
+                                <div class="relative aspect-[16/9] overflow-hidden">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                                    <Image 
+                                        src={project.image} 
+                                        alt={project.title}
+                                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                        width={1200}
+                                        height={675}
+                                    />
+                                    <!-- Tags -->
+                                    <div class="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap gap-2">
+                                        {project.tags.map(tag => (
+                                            <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-gray-800 text-sm rounded-full">
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <!-- Contenu -->
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <p class="text-gray-600 leading-relaxed">
+                                        {project.description}
+                                    </p>
+                                </div>
+
+                                <!-- Indicateur de projet -->
+                                <div class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-purple-600 shadow-lg">
+                                    <span class="text-sm font-semibold">0{index + 1}</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .perspective-1000 {
+        perspective: 1000px;
+    }
+</style>
