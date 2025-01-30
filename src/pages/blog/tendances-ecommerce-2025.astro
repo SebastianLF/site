@@ -1,78 +1,95 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 const title = "Les tendances e-commerce à suivre en 2025";
 const date = "2025-01-15";
 const readTime = "4 min";
+const image = "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80";
 ---
 
 <Layout title={title}>
-    <article class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="max-w-3xl mx-auto">
-                <header class="mb-12">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">{title}</h1>
-                    <div class="flex items-center text-gray-600">
-                        <time datetime={date}>
-                            {new Date(date).toLocaleDateString('fr-FR', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </time>
-                        <span class="mx-2">•</span>
-                        <span>{readTime} de lecture</span>
-                    </div>
-                </header>
-
-                <div class="prose prose-lg max-w-none">
-                    <h2>L'évolution du commerce électronique</h2>
-                    <p>
-                        Le e-commerce continue d'évoluer rapidement avec l'émergence de nouvelles
-                        technologies et les changements dans les habitudes des consommateurs. Voici
-                        les principales tendances à surveiller en 2025.
-                    </p>
-
-                    <h3>1. Commerce conversationnel</h3>
-                    <p>
-                        L'intégration des chatbots et des assistants virtuels devient de plus en
-                        plus sophistiquée, offrant une expérience d'achat plus personnalisée et
-                        interactive.
-                    </p>
-
-                    <h3>2. Réalité augmentée (AR)</h3>
-                    <p>
-                        L'utilisation de l'AR pour visualiser les produits avant l'achat devient
-                        un standard, particulièrement dans les secteurs de la mode et de la décoration.
-                    </p>
-
-                    <h3>3. Paiements innovants</h3>
-                    <p>
-                        Les options de paiement se diversifient avec l'adoption croissante des
-                        cryptomonnaies et des solutions "Buy Now, Pay Later".
-                    </p>
-
-                    <h2>Comment s'adapter à ces changements</h2>
-                    <p>
-                        Pour rester compétitif, il est essentiel d'adapter votre boutique Shopify
-                        à ces nouvelles tendances. Voici quelques recommandations :
-                    </p>
-                    <ul>
-                        <li>Investir dans des solutions d'IA et de personnalisation</li>
-                        <li>Optimiser pour le commerce mobile</li>
-                        <li>Intégrer des fonctionnalités sociales</li>
-                        <li>Adopter les nouvelles technologies de paiement</li>
-                    </ul>
-
-                    <h2>Conclusion</h2>
-                    <p>
-                        L'année 2025 promet d'être riche en innovations pour le e-commerce. Les
-                        marchands qui sauront adopter ces nouvelles tendances tout en maintenant
-                        une expérience utilisateur de qualité seront les mieux positionnés pour
-                        réussir.
-                    </p>
-                </div>
+    <article class="max-w-4xl mx-auto px-4 py-16">
+        <header class="mb-16">
+            <div class="flex items-center gap-4 text-gray-600 mb-6">
+                <time datetime={date}>{new Date(date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+                <span>•</span>
+                <span>{readTime} de lecture</span>
             </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-8">{title}</h1>
+            <img src={image} alt="Tendances e-commerce 2025" class="w-full h-[400px] object-cover rounded-2xl">
+        </header>
+
+        <div class="prose prose-lg max-w-none">
+            <h2>L'e-commerce en 2025 : Innovation et Expérience Client</h2>
+            <p>
+                L'année 2025 s'annonce comme une période charnière pour l'e-commerce, avec l'émergence de nouvelles technologies 
+                et l'évolution des comportements d'achat. Découvrons les tendances majeures qui vont redéfinir le commerce en ligne.
+            </p>
+
+            <h3>1. Intelligence Artificielle Générative</h3>
+            <p>
+                L'IA générative révolutionne l'expérience shopping avec :
+                - Des descriptions de produits personnalisées
+                - Des visuels générés à la demande
+                - Des assistants shopping ultra-intelligents
+                - Des recommandations hyper-contextualisées
+            </p>
+
+            <h3>2. Commerce Immersif</h3>
+            <p>
+                La réalité augmentée et virtuelle deviennent mainstream :
+                - Essayage virtuel avancé
+                - Showrooms virtuels
+                - Expériences d'achat en réalité mixte
+                - Configuration 3D de produits personnalisés
+            </p>
+
+            <h3>3. Commerce Décentralisé</h3>
+            <p>
+                Le Web3 et la blockchain transforment les transactions :
+                - Paiements en cryptomonnaies stables
+                - NFTs utilitaires pour la fidélisation
+                - Marketplaces décentralisées
+                - Traçabilité transparente des produits
+            </p>
+
+            <h3>4. Hyperpersonnalisation Éthique</h3>
+            <p>
+                La personnalisation atteint un nouveau niveau :
+                - Respect renforcé de la vie privée
+                - Personnalisation basée sur le consentement
+                - Expériences uniques par client
+                - Recommandations prédictives éthiques
+            </p>
+
+            <h3>5. Commerce Durable et Circulaire</h3>
+            <p>
+                La durabilité devient centrale :
+                - Calcul d'impact carbone en temps réel
+                - Options de recyclage intégrées
+                - Marketplaces de seconde main
+                - Emballages biodégradables intelligents
+            </p>
+
+            <h2>Préparer son e-commerce pour 2025</h2>
+            <p>
+                Pour réussir en 2025, les e-commerçants doivent :
+            </p>
+            <ul>
+                <li>Investir dans les technologies d'IA et d'automatisation</li>
+                <li>Adopter une approche mobile-first avancée</li>
+                <li>Intégrer des solutions de commerce immersif</li>
+                <li>Renforcer leur engagement environnemental</li>
+                <li>Développer une stratégie de données éthique</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>
+                2025 marque un tournant dans l'évolution de l'e-commerce, où technologie et responsabilité se rejoignent.
+                Les entreprises qui sauront adopter ces innovations tout en maintenant une approche centrée sur l'humain
+                et l'environnement seront les leaders de demain.
+            </p>
         </div>
     </article>
 </Layout>
