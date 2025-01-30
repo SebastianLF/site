@@ -16,24 +16,48 @@ const currentPath = Astro.url.pathname;
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between h-20">
             <!-- Logo -->
-            <a href="/" class="flex items-center gap-2 group">
+            <a href="/" class="flex items-center group">
                 <!-- Symbole du logo -->
-                <div class="w-12 h-12 relative">
-                    <svg class="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="transform origin-center group-hover:rotate-12 transition-transform duration-300" d="M24 4L40 12V36L24 44L8 36V12L24 4Z" fill="url(#gradient-purple)" stroke="currentColor" stroke-width="2"></path>
-                        <path class="text-purple-200" d="M24 4L40 12L24 20L8 12L24 4Z" fill="currentColor"></path>
-                        <path class="text-white/30" d="M24 44V20L40 12V36L24 44Z" fill="currentColor"></path>
-                        <path class="text-white/10" d="M24 44V20L8 12V36L24 44Z" fill="currentColor"></path>
-                        <defs>
-                            <linearGradient id="gradient-purple" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
-                                <stop offset="0%" stop-color="#9333EA"></stop>
-                                <stop offset="100%" stop-color="#7E22CE"></stop>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                <div class="relative flex items-center">
+                    <div class="w-12 h-12 flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path class="transform origin-center group-hover:rotate-12 transition-transform duration-300" 
+                                d="M24 4L40 12V36L24 44L8 36V12L24 4Z" 
+                                fill="url(#gradient-purple)" 
+                                stroke="currentColor" 
+                                stroke-width="2"
+                            />
+                            <path class="text-purple-200" 
+                                d="M24 4L40 12L24 20L8 12L24 4Z" 
+                                fill="currentColor"
+                            />
+                            <path class="text-white/30" 
+                                d="M24 44V20L40 12V36L24 44Z" 
+                                fill="currentColor"
+                            />
+                            <path class="text-white/10" 
+                                d="M24 44V20L8 12V36L24 44Z" 
+                                fill="currentColor"
+                            />
+                            <defs>
+                                <linearGradient id="gradient-purple" x1="8" y1="4" x2="40" y2="44" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0%" stop-color="#9333EA"/>
+                                    <stop offset="100%" stop-color="#7E22CE"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <!-- Texte du logo -->
+                    <div class="flex flex-col ml-1">
+                        <div class="text-2xl font-bold tracking-tight leading-none">
+                            <span class="text-purple-600">Leon</span>
+                            <span class="text-gray-900">Codes</span>
+                        </div>
+                        <span class="text-[0.65rem] text-gray-500 font-medium tracking-widest uppercase mt-0.5 hidden sm:block">
+                            Expert Shopify
+                        </span>
+                    </div>
                 </div>
-                <!-- Texte du logo -->
-                <span class="text-2xl font-bold tracking-tight">LeonCodes</span>
             </a>
 
             <!-- Menu principal -->
