@@ -20,6 +20,11 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -32,7 +37,9 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: |
+          pnpm install
+          pnpm add -D sharp
 
       - name: Build
         run: pnpm build
