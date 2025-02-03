@@ -8,5 +8,5 @@ export default defineConfig({
 	build: {
 		assets: 'assets'
 	},
-	trailingSlash: 'never' // Forcer l'absence de slash à la fin des URLs
+	trailingSlash: 'always' // Forcer les slashes à la fin des URLs
 });
