@@ -9,12 +9,9 @@ interface Props {
 
 const { title, description = "Expert Shopify - Développement et optimisation de boutiques en ligne" } = Astro.props;
 
-// Récupérer l'URL canonique avec slash final (sauf pour la page d'accueil)
-const canonicalURL = new URL(Astro.url.pathname, 'https://leoncodes.com').toString();
-const normalizedURL = canonicalURL === 'https://leoncodes.com/' ? canonicalURL : canonicalURL.replace(/\/?$/, '/');
+// Récupérer l'URL canonique (toujours avec slash final)
+const canonicalURL = new URL(Astro.url.pathname, 'https://leoncodes.com').toString().replace(/\/?$/, '/');
 
-// Récupérer l'URL canonique sans slash final
-// const canonicalURL = new URL(Astro.url.pathname, 'https://leoncodes.com').toString().replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -31,7 +28,7 @@ const normalizedURL = canonicalURL === 'https://leoncodes.com/' ? canonicalURL :
 		<title>{title}</title>
 
 		<!-- Balise canonique -->
-		<link rel="canonical" href={normalizedURL} />
+		<link rel="canonical" href={canonicalURL} />
 	</head>
 	<body class="antialiased bg-white font-outfit min-h-screen">
 		<Navigation />
