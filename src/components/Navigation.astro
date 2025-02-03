@@ -10,6 +10,9 @@ const menuItems = [
 
 // Récupérer le chemin actuel
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
+
+// Fonction pour normaliser les URLs
+const normalizeUrl = (url: string) => url === '/' ? url : url.replace(/\/$/, '');
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-purple-100">
@@ -63,11 +66,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
             <!-- Menu principal -->
             <div class="hidden md:flex items-center space-x-8">
                 {menuItems.map(item => {
-                    const isActive = currentPath === item.path || 
+                    const isActive = currentPath === normalizeUrl(item.path) || 
                                    (currentPath !== '/blog' && item.path.startsWith('/#'));
                     return (
                         <a
-                            href={item.path}
+                            href={normalizeUrl(item.path)}
                             class:list={[
                                 "text-gray-600 hover:text-purple-600 font-medium transition-colors"
                             ]}
@@ -109,11 +112,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
         >
             <div class="flex flex-col space-y-3">
                 {menuItems.map(item => {
-                    const isActive = currentPath === item.path || 
+                    const isActive = currentPath === normalizeUrl(item.path) || 
                                    (currentPath !== '/blog' && item.path.startsWith('/#'));
                     return (
                         <a
-                            href={item.path}
+                            href={normalizeUrl(item.path)}
                             class:list={[
                                 "px-4 py-2 text-gray-600 hover:text-purple-600 font-medium transition-colors",
                                 { "text-purple-600": isActive }
