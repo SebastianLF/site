@@ -42,15 +42,15 @@ const image = "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto
                     <h3>1. Syntaxe de base</h3>
                     <p>Liquid utilise deux types de délimiteurs principaux :</p>
                     <ul>
-                        <li><code>{{ "{{ }}" }}</code> pour afficher du contenu</li>
-                        <li><code>{% "{% %}" %}</code> pour la logique (conditions, boucles, etc.)</li>
+                        <li><code>&#123;&#123; ... &#125;&#125;</code> pour afficher du contenu</li>
+                        <li><code>&#123;&#37; ... &#37;&#125;</code> pour la logique (conditions, boucles, etc.)</li>
                     </ul>
 
                     <p>Exemple simple :</p>
-                    <pre><code>&lt;h1&gt;{{ "{{ product.title }}" }}&lt;/h1&gt;
-{% "{% if product.available %}" %}
-  Prix : {{ "{{ product.price | money }}" }}
-{% "{% endif %}" %}</code></pre>
+                    <pre><code>&lt;h1&gt;&#123;&#123; product.title &#125;&#125;&lt;/h1&gt;
+&#123;&#37; if product.available &#37;&#125;
+  Prix : &#123;&#123; product.price | money &#125;&#125;
+&#123;&#37; endif &#37;&#125;</code></pre>
 
                     <h3>2. Les objets Liquid</h3>
                     <p>Liquid donne accès aux données de votre boutique via des objets prédéfinis :</p>
@@ -64,38 +64,38 @@ const image = "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto
 
                     <h3>3. Les filtres</h3>
                     <p>Les filtres sont des modificateurs qui transforment les données. Par exemple :</p>
-                    <pre><code>{{ "{{ product.price | money }}" }}           // Formate le prix
-{{ "{{ product.title | capitalize }}" }}      // Met en majuscule
-{{ "{{ collection.products | size }}" }}      // Compte le nombre d'éléments</code></pre>
+                    <pre><code>&#123;&#123; product.price | money &#125;&#125;           // Formate le prix
+&#123;&#123; product.title | capitalize &#125;&#125;      // Met en majuscule
+&#123;&#123; collection.products | size &#125;&#125;      // Compte le nombre d'éléments</code></pre>
 
                     <h3>4. Les balises de contrôle</h3>
                     <p>Liquid permet d'utiliser des structures de contrôle comme :</p>
-                    <pre><code>{% "{% if customer %}" %}
-  Bonjour {{ "{{ customer.name }}" }}
-{% "{% else %}" %}
+                    <pre><code>&#123;&#37; if customer &#37;&#125;
+  Bonjour &#123;&#123; customer.name &#125;&#125;
+&#123;&#37; else &#37;&#125;
   Veuillez vous connecter
-{% "{% endif %}" %}
+&#123;&#37; endif &#37;&#125;
 
-{% "{% for product in collection.products %}" %}
-  {{ "{{ product.title }}" }}
-{% "{% endfor %}" %}</code></pre>
+&#123;&#37; for product in collection.products &#37;&#125;
+  &#123;&#123; product.title &#125;&#125;
+&#123;&#37; endfor &#37;&#125;</code></pre>
 
                     <h3>5. Les assignations</h3>
                     <p>Vous pouvez créer des variables temporaires :</p>
-                    <pre><code>{% "{% assign ma_variable = 'valeur' %}" %}
-{% "{% assign produits_disponibles = collection.products | where: 'available' %}" %}</code></pre>
+                    <pre><code>&#123;&#37; assign ma_variable = 'valeur' &#37;&#125;
+&#123;&#37; assign produits_disponibles = collection.products | where: 'available' &#37;&#125;</code></pre>
 
                     <h3>6. Les tableaux</h3>
                     <p>Liquid permet de manipuler des tableaux avec plusieurs méthodes :</p>
-                    <pre><code>{% "{% assign fruits = 'pomme,orange,banane' | split: ',' %}" %}
-{% "{% for fruit in fruits %}" %}
-  {{ "{{ fruit }}" }}
-{% "{% endfor %}" %}</code></pre>
+                    <pre><code>&#123;&#37; assign fruits = 'pomme,orange,banane' | split: ',' &#37;&#125;
+&#123;&#37; for fruit in fruits &#37;&#125;
+  &#123;&#123; fruit &#125;&#125;
+&#123;&#37; endfor &#37;&#125;</code></pre>
 
                     <h3>7. Les inclusions</h3>
                     <p>Vous pouvez modulariser votre code :</p>
-                    <pre><code>{% "{% include 'header' %}" %}
-{% "{% section 'footer' %}" %}</code></pre>
+                    <pre><code>&#123;&#37; include 'header' &#37;&#125;
+&#123;&#37; section 'footer' &#37;&#125;</code></pre>
 
                     <h2>Avantages de Liquid</h2>
                     <ul>
