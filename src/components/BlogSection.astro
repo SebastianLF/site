@@ -1,36 +1,29 @@
 ---
+// Utiliser les mêmes données d'articles que sur la page blog principale
 const articles = [
     {
-        title: "Comprendre Liquid : Le langage de template de Shopify",
-        excerpt: "Découvrez Liquid, le langage de template qui permet de créer des thèmes Shopify dynamiques. Guide complet avec exemples de code et bonnes pratiques.",
-        date: "2025-02-05",
-        slug: "comprendre-liquid-shopify",
+        title: "Comment optimiser votre boutique Shopify pour les performances",
+        excerpt: "Découvrez les meilleures pratiques pour améliorer la vitesse de chargement de votre boutique Shopify et augmenter vos conversions.",
+        date: "2025-01-20",
+        slug: "optimiser-boutique-shopify-performances",
         readTime: "5 min",
-        image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=800&q=80"
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
     },
     {
         title: "Les tendances e-commerce à suivre en 2025",
-        excerpt: "Explorez les nouvelles tendances qui vont façonner l'avenir du commerce en ligne cette année.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
+        excerpt: "Le commerce électronique évolue rapidement. Voici les tendances qui façonneront l'année 2025 et comment les intégrer à votre boutique Shopify.",
         date: "2025-01-15",
+        slug: "tendances-ecommerce-2025",
         readTime: "4 min",
-        slug: "tendances-ecommerce-2025"
-    },
-    {
-        title: "Comment optimiser les performances de votre boutique Shopify",
-        excerpt: "Découvrez les meilleures pratiques pour améliorer la vitesse et les performances de votre boutique Shopify.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
-        date: "2024-01-20",
-        readTime: "5 min",
-        slug: "optimiser-boutique-shopify-performances"
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
     },
     {
         title: "Guide complet des applications Shopify essentielles",
-        excerpt: "Une sélection des meilleures applications pour optimiser votre boutique et augmenter vos ventes.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-        date: "2024-01-10",
+        excerpt: "Une sélection des meilleures applications pour améliorer votre boutique Shopify et maximiser vos ventes.",
+        date: "2025-01-10",
+        slug: "guide-applications-shopify",
         readTime: "6 min",
-        slug: "guide-applications-shopify"
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
     }
 ];
 ---
@@ -47,7 +40,7 @@ const articles = [
     <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-gray-100/30 to-transparent"></div>
 
     <div class="container mx-auto px-4 relative">
-        <div class="max-w-6xl mx-auto">
+        <div class="max-w-7xl mx-auto">
             <!-- En-tête -->
             <div class="text-center mb-20">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-sm mb-6">
@@ -67,59 +60,48 @@ const articles = [
             <!-- Grille d'articles -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {articles.map((article, index) => (
-                    <div class="group">
-                        <a href={`/blog/${article.slug}`} class="block">
-                            <article class="relative bg-white rounded-[2rem] overflow-hidden border border-gray-100">
-                                <!-- Image avec effet -->
-                                <div class="relative aspect-video overflow-hidden">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-                                    <img 
-                                        src={article.image} 
-                                        alt={article.title}
-                                        class="w-full h-full object-cover"
-                                        loading="lazy"
-                                        decoding="async"
-                                    />
-                                    <!-- Métadonnées sur l'image -->
-                                    <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between text-white text-sm">
-                                        <time datetime={article.date} class="flex items-center gap-1">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                            {new Date(article.date).toLocaleDateString('fr-FR', {day: 'numeric', month: 'long'})}
-                                        </time>
-                                        <span class="flex items-center gap-1">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                            {article.readTime}
-                                        </span>
-                                    </div>
+                    <article class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow border border-purple-100/50 overflow-hidden">
+                        <a href={`/blog/${article.slug}`} class="block h-full">
+                            <div class="aspect-video relative overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                                <img 
+                                    src={article.image} 
+                                    alt={article.title}
+                                    class="w-full h-full object-cover"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center text-sm text-purple-600 mb-3">
+                                    <time datetime={article.date}>
+                                        {new Date(article.date).toLocaleDateString('fr-FR', {
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
+                                        })}
+                                    </time>
+                                    <span class="mx-2">•</span>
+                                    <span>{article.readTime} de lecture</span>
                                 </div>
-
-                                <!-- Contenu -->
-                                <div class="p-6">
-                                    <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
-                                        {article.title}
-                                    </h3>
-                                    <p class="text-gray-600 mb-4 line-clamp-3">
-                                        {article.excerpt}
-                                    </p>
-                                    <div class="flex items-center text-purple-600 font-medium">
-                                        <span>Lire l'article</span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                        </svg>
-                                    </div>
+                                
+                                <h3 class="text-xl font-bold mb-3 text-gray-900 group-hover:text-purple-600">
+                                    {article.title}
+                                </h3>
+                                
+                                <p class="text-gray-600 mb-4 text-sm">
+                                    {article.excerpt}
+                                </p>
+                                
+                                <div class="inline-flex items-center text-purple-600 font-medium text-sm">
+                                    Lire l'article
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
                                 </div>
-
-                                <!-- Numéro d'article -->
-                                <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white flex items-center justify-center text-purple-600 text-sm font-semibold">
-                                    0{index + 1}
-                                </div>
-                            </article>
+                            </div>
                         </a>
-                    </div>
+                    </article>
                 ))}
             </div>
 
